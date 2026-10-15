@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="client.controllers.MainController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="top-bar">
+            <padding>
+                <Insets top="12" right="18" bottom="12" left="18"/>
+            </padding>
+            <Label text="Расчет прибыли мебельного салона" styleClass="app-title"/>
+            <Label fx:id="userLabel" styleClass="user-label"/>
+        </HBox>
+    </top>
+    <left>
+        <VBox fx:id="menuBox" spacing="8" prefWidth="250" styleClass="side-menu">
+            <padding>
+                <Insets top="16" right="12" bottom="16" left="12"/>
+            </padding>
+        </VBox>
+    </left>
+    <center>
+        <BorderPane fx:id="contentPane" styleClass="content-pane"/>
+    </center>
+    <bottom>
+        <Label fx:id="statusLabel" styleClass="status-bar"/>
+    </bottom>
+</BorderPane>

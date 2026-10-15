@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="14" styleClass="section" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Рабочее место" styleClass="section-title"/>
+    <HBox spacing="12">
+        <VBox fx:id="salesCard" styleClass="metric" managed="false" visible="false">
+            <Label text="Продажи" styleClass="metric-title"/>
+            <Label text="Оформление сделок, статусы, остатки" styleClass="metric-value" wrapText="true"/>
+        </VBox>
+        <VBox fx:id="customersCard" styleClass="metric" managed="false" visible="false">
+            <Label text="Клиенты" styleClass="metric-title"/>
+            <Label text="База клиентов и история покупок" styleClass="metric-value" wrapText="true"/>
+        </VBox>
+        <VBox fx:id="financeCard" styleClass="metric" managed="false" visible="false">
+            <Label text="Финансы" styleClass="metric-title"/>
+            <Label text="Расходы, прибыль, отчеты, комиссии" styleClass="metric-value" wrapText="true"/>
+        </VBox>
+        <VBox fx:id="adminCard" styleClass="metric" managed="false" visible="false">
+            <Label text="Администрирование" styleClass="metric-title"/>
+            <Label text="Пользователи, товары, категории, скидки и логи" styleClass="metric-value" wrapText="true"/>
+        </VBox>
+    </HBox>
+</VBox>

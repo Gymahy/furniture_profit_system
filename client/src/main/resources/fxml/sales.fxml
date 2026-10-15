@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" styleClass="section" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Продажи" styleClass="section-title"/>
+    <HBox spacing="14" styleClass="split-layout" VBox.vgrow="ALWAYS">
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Оформление продажи" styleClass="section-title"/>
+            <GridPane hgap="10" vgap="8" styleClass="form-grid">
+                <Label text="Клиент" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="customerBox" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Товар" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="productBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Количество" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Spinner fx:id="quantitySpinner" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Скидка" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="discountBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+            <FlowPane alignment="CENTER_LEFT" hgap="8" vgap="8" styleClass="toolbar">
+                <Button text="Проверить остаток" onAction="#checkStock" styleClass="secondary-button"/>
+                <Button text="Добавить позицию" onAction="#addItem" styleClass="primary-button"/>
+                <Button text="Убрать позицию" onAction="#removeItem" styleClass="secondary-button"/>
+                <Button text="Сохранить как черновик" onAction="#saveDraft" styleClass="secondary-button"/>
+                <Button text="Оформить продажу" onAction="#createSale" styleClass="primary-button"/>
+            </FlowPane>
+            <TableView fx:id="cartTable" prefHeight="180">
+                <columns>
+                    <TableColumn fx:id="cartProductColumn" text="Товар" prefWidth="180"/>
+                    <TableColumn fx:id="cartQuantityColumn" text="Кол-во" prefWidth="70"/>
+                    <TableColumn fx:id="cartPriceColumn" text="Цена" prefWidth="90"/>
+                    <TableColumn fx:id="cartTotalColumn" text="Сумма" prefWidth="90"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <VBox spacing="10" styleClass="side-panel">
+            <Label text="Жизненный цикл продажи" styleClass="section-title"/>
+            <TableView fx:id="salesTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="saleNumberColumn" text="Номер" prefWidth="135"/>
+                    <TableColumn fx:id="saleDateColumn" text="Дата" prefWidth="145"/>
+                    <TableColumn fx:id="saleCustomerColumn" text="Клиент" prefWidth="150"/>
+                    <TableColumn fx:id="saleManagerColumn" text="Менеджер" prefWidth="140"/>
+                    <TableColumn fx:id="saleStatusColumn" text="Статус" prefWidth="110"/>
+                    <TableColumn fx:id="saleAmountColumn" text="Сумма" prefWidth="90"/>
+                </columns>
+            </TableView>
+            <FlowPane alignment="CENTER_LEFT" hgap="8" vgap="8" styleClass="toolbar">
+                <ComboBox fx:id="statusBox"/>
+                <Button text="Изменить статус" onAction="#changeStatus" styleClass="primary-button"/>
+                <Button text="Удалить продажу" onAction="#deleteSale" styleClass="danger-button"/>
+            </FlowPane>
+        </VBox>
+    </HBox>
+</VBox>

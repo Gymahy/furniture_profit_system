@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" styleClass="section" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Клиентская база" styleClass="section-title"/>
+    <HBox spacing="14" styleClass="split-layout">
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <TableView fx:id="customersTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="fullNameColumn" text="Клиент" prefWidth="220"/>
+                    <TableColumn fx:id="phoneColumn" text="Телефон" prefWidth="130"/>
+                    <TableColumn fx:id="typeColumn" text="Тип" prefWidth="130"/>
+                    <TableColumn fx:id="registrationColumn" text="Дата регистрации" prefWidth="130"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <VBox spacing="10" styleClass="side-panel">
+            <Label text="Карточка клиента" styleClass="section-title"/>
+            <GridPane hgap="10" vgap="8" styleClass="form-grid">
+                <Label text="Имя/организация" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Телефон" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="phoneField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Тип" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="typeBox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </GridPane>
+            <FlowPane alignment="CENTER_LEFT" hgap="8" vgap="8" styleClass="toolbar">
+                <Button text="Сохранить" onAction="#saveCustomer" styleClass="primary-button"/>
+                <Button text="Новый" onAction="#clearForm" styleClass="secondary-button"/>
+                <Button text="Удалить" onAction="#deleteCustomer" styleClass="danger-button"/>
+                <Button text="История покупок" onAction="#loadHistory" styleClass="secondary-button"/>
+            </FlowPane>
+        </VBox>
+    </HBox>
+    <Label text="История покупок" styleClass="section-title"/>
+    <TableView fx:id="historyTable" prefHeight="190" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="historyDateColumn" text="Дата" prefWidth="145"/>
+            <TableColumn fx:id="historySaleNumberColumn" text="Продажа" prefWidth="120"/>
+            <TableColumn fx:id="historyProductsColumn" text="Товар" prefWidth="240"/>
+            <TableColumn fx:id="historyStatusColumn" text="Статус" prefWidth="120"/>
+            <TableColumn fx:id="historyAmountColumn" text="Сумма" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

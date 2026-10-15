@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" styleClass="section" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Дисконтные программы" styleClass="section-title"/>
+    <HBox spacing="14" styleClass="split-layout" VBox.vgrow="ALWAYS">
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <TableView fx:id="discountsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameColumn" text="Название" prefWidth="190"/>
+                    <TableColumn fx:id="typeColumn" text="Тип" prefWidth="110"/>
+                    <TableColumn fx:id="valueColumn" text="Значение" prefWidth="90"/>
+                    <TableColumn fx:id="startColumn" text="Начало" prefWidth="100"/>
+                    <TableColumn fx:id="endColumn" text="Окончание" prefWidth="100"/>
+                    <TableColumn fx:id="activeColumn" text="Активна" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <VBox spacing="10" styleClass="side-panel">
+            <Label text="Скидка" styleClass="section-title"/>
+            <GridPane hgap="10" vgap="8" styleClass="form-grid">
+                <Label text="Название" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Тип" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="typeBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Значение" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="valueField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Начало" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="startDatePicker" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Окончание" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="endDatePicker" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            </GridPane>
+            <FlowPane alignment="CENTER_LEFT" hgap="8" vgap="8" styleClass="toolbar">
+                <Button text="Сохранить" onAction="#saveDiscount" styleClass="primary-button"/>
+                <Button text="Новая" onAction="#clearForm" styleClass="secondary-button"/>
+                <Button text="Удалить" onAction="#deleteDiscount" styleClass="danger-button"/>
+            </FlowPane>
+        </VBox>
+    </HBox>
+</VBox>

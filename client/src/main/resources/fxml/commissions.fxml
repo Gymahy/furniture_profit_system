@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12" styleClass="section" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Ведомость комиссий" styleClass="section-title"/>
+    <FlowPane alignment="CENTER_LEFT" hgap="8" vgap="8" styleClass="toolbar">
+        <Label text="С"/>
+        <DatePicker fx:id="startDatePicker"/>
+        <Label text="По"/>
+        <DatePicker fx:id="endDatePicker"/>
+        <Button text="Показать" onAction="#load" styleClass="primary-button"/>
+    </FlowPane>
+    <TableView fx:id="commissionsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="managerColumn" text="Пользователь" prefWidth="180"/>
+            <TableColumn fx:id="saleColumn" text="Продажа" prefWidth="120"/>
+            <TableColumn fx:id="percentColumn" text="Процент" prefWidth="90"/>
+            <TableColumn fx:id="baseColumn" text="Цена расчета" prefWidth="120"/>
+            <TableColumn fx:id="amountColumn" text="Комиссия" prefWidth="100"/>
+            <TableColumn fx:id="periodColumn" text="Период" prefWidth="100"/>
+            <TableColumn fx:id="statusColumn" text="Статус" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>
